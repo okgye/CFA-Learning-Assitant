@@ -1,0 +1,10 @@
+Determinants of Interest Rates:
+    1. real risk-free interest rate
+    2. inflation premium
+    3. default risk premium
+    4. liquidity premium
+    5. maturity premium
+
+maturity premium is generally positive, as in interest rates in long term US treasury bonds are generally higher than that of shorter term bonds. Why?
+
+What exactly is a real risk-free interest rate?
