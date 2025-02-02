@@ -8,3 +8,31 @@ Determinants of Interest Rates:
 maturity premium is generally positive, as in interest rates in long term US treasury bonds are generally higher than that of shorter term bonds. Why?
 
 What exactly is a real risk-free interest rate?
+
+# pg. 15 question3 
+liquidity premium: .5%
+Deafult risk premium: 2%
+inflation premium is zero
+maturity premium (6yr): 2%
+assuming linear than .33%/yr
+
+
+4.16?
+
+
+A holding period return can be computed for a period longer than one year. For
+example, an analyst may need to compute a one-year holding period return from
+three annual returns. In that case, the one-year holding period return is computed
+by compounding the three annual returns:
+R = [(1 + R1) × (1 + R2) × (1 + R3)] − 1,
+where R1, R2, and R3 are the three annual returns.
+
+--> In what situation would you need to compute a one-year holding period return from three annual returns? Give me a simplified real-life scenario.
+
+Annual return rates of year 1, 2, 3 of a portfolio is 22%, -25%, and 11%, respectively. The Geometric mean return over the three-year period is calculated as followed:
+[1.22*0.75*1.11]^(1/3)-1=0.0052
+However, I calculated it with [(1.22*0.75*1.11)-1]/3=0.0052
+
+--> I got the answer correct, but I was wondering if my approach will lead to an incorrect solution in the future.
+
+r/localLlama
