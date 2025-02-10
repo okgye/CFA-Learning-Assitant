@@ -36,3 +36,54 @@ However, I calculated it with [(1.22*0.75*1.11)-1]/3=0.0052
 --> I got the answer correct, but I was wondering if my approach will lead to an incorrect solution in the future.
 
 r/localLlama
+
+
+https://study.cfainstitute.org/app/cfa-program-level-i-prerequisite-readings-for-2025#read/study_task/2466633/interest-rates-1
+
+I understood liquidity premium, one of the components of nominal interest rate, as premium for slippage.
+The CFA required readings do not mention this word, and instead describes the concept as "impact in price".
+Is slippage a niche vocabulary for cryptocurrencies?
+
+Maturity premimum is reflected in the interest rate differences of short-and-long-term treasury debts.
+My intuition was that maturity premium is a subset of liquidity premium because it is a compensation for a trade-off in investment liquidity (due to longer lock-up period of longer treasury debts).
+But I know this is not true because US treasury bonds are highly liquid in the open market regardless of its remaining time of maturity.
+As in, I always have an option to liquidate my treasury debts by market selling it, even if it's a long-term security.
+So I don't really understand what maturity premium is and why it exists in the first place.
+
+What is "the BGN mode in the calculator"?
+
+Transcendental number e~2.7182818
+
+Effective annual interest rate: An interest rate with a periocity of one.
+
+We can then define the future value as
+FV𝑁=𝐴[(1+𝑟)𝑁−1+(1+𝑟)𝑁−2+(1+𝑟)𝑁−3+…+(1+𝑟)1+(1+𝑟)0] which simplifies to FV𝑁=𝐴[(1+𝑟)𝑁−1𝑟]
+
+What is the name of this simplification theory?
+
+Is there a formula on calculating the infinitely compounded future value of an annuity of uneven cash flows?
+Is this different from a perpetuity?
+
+We can express the present value of an ordinary annuity as the sum of the present values of each individual annuity payment, as follows:
+PV=𝐴(1+𝑟)+𝐴(1+𝑟)2+𝐴(1+𝑟)3+…+𝐴(1+𝑟)𝑁−1+𝐴(1+𝑟)𝑁
+10
+where
+
+A = the annuity amount
+
+r = the interest rate per period corresponding to the frequency of annuity payments (for example, annual, quarterly, or monthly)
+
+N = the number of annuity payments
+
+Because the annuity payment (A) is a constant in this equation, it can be factored out as a common term. Thus the sum of the interest factors has a shortcut expression:
+
+PV=𝐴1−1(1+𝑟)𝑁𝑟
+I need a mathematical derivation of this.
+
+
+Prerequesite reading: requires about 24 hours worth of studying
+
+Flash cards
+
+Nominal risk-free interest rate is the sum of the real risk-free interest rate and the inflation premium.
+But I thought nominal was real plus inflation premium plus liquidity premium plus maturity premium plus deafult premium??
