@@ -99,3 +99,4 @@ The nominal risk-free interest rate is the sum of the real risk-free interest ra
 - **Flashcards**: Use flashcards to memorize key concepts and formulas.
 - **Prerequisite Reading**: Allocate about 24 hours for prerequisite readings to build a strong foundation.
 - **Practice Problems**: Regularly solve practice problems to reinforce understanding and application of concepts.
+
