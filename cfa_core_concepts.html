@@ -1,0 +1,170 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ff6666", "font": {"color": "white"}, "id": "CFA Level I Exam", "label": "CFA Level I Exam", "shape": "dot", "size": 30, "title": "CFA Level I Exam"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Ethical \u0026 Professional Standards", "label": "Ethical \u0026 Professional Standards", "shape": "dot", "size": 20, "title": "Ethical \u0026 Professional Standards"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Quantitative Methods", "label": "Quantitative Methods", "shape": "dot", "size": 20, "title": "Quantitative Methods"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Economics", "label": "Economics", "shape": "dot", "size": 20, "title": "Economics"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Financial Reporting \u0026 Analysis (FSR)", "label": "Financial Reporting \u0026 Analysis (FSR)", "shape": "dot", "size": 20, "title": "Financial Reporting \u0026 Analysis (FSR)"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Corporate Issuers", "label": "Corporate Issuers", "shape": "dot", "size": 20, "title": "Corporate Issuers"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Equity Investments", "label": "Equity Investments", "shape": "dot", "size": 20, "title": "Equity Investments"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Fixed Income", "label": "Fixed Income", "shape": "dot", "size": 20, "title": "Fixed Income"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Derivatives", "label": "Derivatives", "shape": "dot", "size": 20, "title": "Derivatives"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Alternative Investments", "label": "Alternative Investments", "shape": "dot", "size": 20, "title": "Alternative Investments"}, {"color": "#66b3ff", "font": {"color": "white"}, "id": "Portfolio Management", "label": "Portfolio Management", "shape": "dot", "size": 20, "title": "Portfolio Management"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Code of Ethics", "label": "Code of Ethics", "shape": "dot", "size": 15, "title": "Code of Ethics"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Professional Conduct", "label": "Professional Conduct", "shape": "dot", "size": 15, "title": "Professional Conduct"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "GIPS Standards", "label": "GIPS Standards", "shape": "dot", "size": 15, "title": "GIPS Standards"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Time Value of Money", "label": "Time Value of Money", "shape": "dot", "size": 15, "title": "Time Value of Money"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Statistical Concepts", "label": "Statistical Concepts", "shape": "dot", "size": 15, "title": "Statistical Concepts"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Probability \u0026 Hypothesis Testing", "label": "Probability \u0026 Hypothesis Testing", "shape": "dot", "size": 15, "title": "Probability \u0026 Hypothesis Testing"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Microeconomics", "label": "Microeconomics", "shape": "dot", "size": 15, "title": "Microeconomics"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Macroeconomics", "label": "Macroeconomics", "shape": "dot", "size": 15, "title": "Macroeconomics"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "International Trade \u0026 Currency", "label": "International Trade \u0026 Currency", "shape": "dot", "size": 15, "title": "International Trade \u0026 Currency"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Financial Statements", "label": "Financial Statements", "shape": "dot", "size": 15, "title": "Financial Statements"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Ratios \u0026 Analysis", "label": "Ratios \u0026 Analysis", "shape": "dot", "size": 15, "title": "Ratios \u0026 Analysis"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Accounting Standards", "label": "Accounting Standards", "shape": "dot", "size": 15, "title": "Accounting Standards"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Corporate Governance", "label": "Corporate Governance", "shape": "dot", "size": 15, "title": "Corporate Governance"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Capital Budgeting", "label": "Capital Budgeting", "shape": "dot", "size": 15, "title": "Capital Budgeting"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "ESG \u0026 Stakeholder Management", "label": "ESG \u0026 Stakeholder Management", "shape": "dot", "size": 15, "title": "ESG \u0026 Stakeholder Management"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Equity Valuation", "label": "Equity Valuation", "shape": "dot", "size": 15, "title": "Equity Valuation"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Market Efficiency", "label": "Market Efficiency", "shape": "dot", "size": 15, "title": "Market Efficiency"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Industry \u0026 Company Analysis", "label": "Industry \u0026 Company Analysis", "shape": "dot", "size": 15, "title": "Industry \u0026 Company Analysis"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Bond Valuation", "label": "Bond Valuation", "shape": "dot", "size": 15, "title": "Bond Valuation"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Yield Measures", "label": "Yield Measures", "shape": "dot", "size": 15, "title": "Yield Measures"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Duration \u0026 Convexity", "label": "Duration \u0026 Convexity", "shape": "dot", "size": 15, "title": "Duration \u0026 Convexity"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Forwards \u0026 Futures", "label": "Forwards \u0026 Futures", "shape": "dot", "size": 15, "title": "Forwards \u0026 Futures"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Options", "label": "Options", "shape": "dot", "size": 15, "title": "Options"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Swaps", "label": "Swaps", "shape": "dot", "size": 15, "title": "Swaps"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Real Estate", "label": "Real Estate", "shape": "dot", "size": 15, "title": "Real Estate"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Private Equity", "label": "Private Equity", "shape": "dot", "size": 15, "title": "Private Equity"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Hedge Funds", "label": "Hedge Funds", "shape": "dot", "size": 15, "title": "Hedge Funds"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Portfolio Theory", "label": "Portfolio Theory", "shape": "dot", "size": 15, "title": "Portfolio Theory"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Asset Allocation", "label": "Asset Allocation", "shape": "dot", "size": 15, "title": "Asset Allocation"}, {"color": "#99ff99", "font": {"color": "white"}, "id": "Risk \u0026 Return", "label": "Risk \u0026 Return", "shape": "dot", "size": 15, "title": "Risk \u0026 Return"}]);
+                  edges = new vis.DataSet([{"from": "CFA Level I Exam", "to": "Ethical \u0026 Professional Standards", "width": 1}, {"from": "CFA Level I Exam", "to": "Quantitative Methods", "width": 1}, {"from": "CFA Level I Exam", "to": "Economics", "width": 1}, {"from": "CFA Level I Exam", "to": "Financial Reporting \u0026 Analysis (FSR)", "width": 1}, {"from": "CFA Level I Exam", "to": "Corporate Issuers", "width": 1}, {"from": "CFA Level I Exam", "to": "Equity Investments", "width": 1}, {"from": "CFA Level I Exam", "to": "Fixed Income", "width": 1}, {"from": "CFA Level I Exam", "to": "Derivatives", "width": 1}, {"from": "CFA Level I Exam", "to": "Alternative Investments", "width": 1}, {"from": "CFA Level I Exam", "to": "Portfolio Management", "width": 1}, {"from": "Ethical \u0026 Professional Standards", "to": "Code of Ethics", "width": 1}, {"from": "Ethical \u0026 Professional Standards", "to": "Professional Conduct", "width": 1}, {"from": "Ethical \u0026 Professional Standards", "to": "GIPS Standards", "width": 1}, {"from": "Ethical \u0026 Professional Standards", "to": "Corporate Issuers", "width": 1}, {"from": "Ethical \u0026 Professional Standards", "to": "Financial Reporting \u0026 Analysis (FSR)", "width": 1}, {"from": "Quantitative Methods", "to": "Time Value of Money", "width": 1}, {"from": "Quantitative Methods", "to": "Statistical Concepts", "width": 1}, {"from": "Quantitative Methods", "to": "Probability \u0026 Hypothesis Testing", "width": 1}, {"from": "Quantitative Methods", "to": "Economics", "width": 1}, {"from": "Quantitative Methods", "to": "Portfolio Management", "width": 1}, {"from": "Economics", "to": "Microeconomics", "width": 1}, {"from": "Economics", "to": "Macroeconomics", "width": 1}, {"from": "Economics", "to": "International Trade \u0026 Currency", "width": 1}, {"from": "Financial Reporting \u0026 Analysis (FSR)", "to": "Financial Statements", "width": 1}, {"from": "Financial Reporting \u0026 Analysis (FSR)", "to": "Ratios \u0026 Analysis", "width": 1}, {"from": "Financial Reporting \u0026 Analysis (FSR)", "to": "Accounting Standards", "width": 1}, {"from": "Financial Reporting \u0026 Analysis (FSR)", "to": "Corporate Issuers", "width": 1}, {"from": "Financial Reporting \u0026 Analysis (FSR)", "to": "Equity Investments", "width": 1}, {"from": "Corporate Issuers", "to": "Corporate Governance", "width": 1}, {"from": "Corporate Issuers", "to": "Capital Budgeting", "width": 1}, {"from": "Corporate Issuers", "to": "ESG \u0026 Stakeholder Management", "width": 1}, {"from": "Equity Investments", "to": "Equity Valuation", "width": 1}, {"from": "Equity Investments", "to": "Market Efficiency", "width": 1}, {"from": "Equity Investments", "to": "Industry \u0026 Company Analysis", "width": 1}, {"from": "Equity Investments", "to": "Fixed Income", "width": 1}, {"from": "Equity Investments", "to": "Derivatives", "width": 1}, {"from": "Equity Investments", "to": "Portfolio Management", "width": 1}, {"from": "Fixed Income", "to": "Bond Valuation", "width": 1}, {"from": "Fixed Income", "to": "Yield Measures", "width": 1}, {"from": "Fixed Income", "to": "Duration \u0026 Convexity", "width": 1}, {"from": "Fixed Income", "to": "Derivatives", "width": 1}, {"from": "Fixed Income", "to": "Portfolio Management", "width": 1}, {"from": "Derivatives", "to": "Forwards \u0026 Futures", "width": 1}, {"from": "Derivatives", "to": "Options", "width": 1}, {"from": "Derivatives", "to": "Swaps", "width": 1}, {"from": "Derivatives", "to": "Alternative Investments", "width": 1}, {"from": "Alternative Investments", "to": "Real Estate", "width": 1}, {"from": "Alternative Investments", "to": "Private Equity", "width": 1}, {"from": "Alternative Investments", "to": "Hedge Funds", "width": 1}, {"from": "Alternative Investments", "to": "Portfolio Management", "width": 1}, {"from": "Portfolio Management", "to": "Portfolio Theory", "width": 1}, {"from": "Portfolio Management", "to": "Asset Allocation", "width": 1}, {"from": "Portfolio Management", "to": "Risk \u0026 Return", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

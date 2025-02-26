@@ -100,3 +100,6 @@ The nominal risk-free interest rate is the sum of the real risk-free interest ra
 - **Prerequisite Reading**: Allocate about 24 hours for prerequisite readings to build a strong foundation.
 - **Practice Problems**: Regularly solve practice problems to reinforce understanding and application of concepts.
 
+A. Investment 2 has a higher interest rate compared to investment 1. Because default risks are equally low for both invesmtents, the higher interest rate of investment 2 can be explained as a compensation for a trade-off in liquidity, or liquidity premium.
+B. The interest rate of investment 5 is represented as that of Investment 4 plus liquidity premium plus default risk premium. Thus, 6.5-4.0=2.5 percentage points represent liquidity premium plus default risk premium. Since liquidity premium is calculated as 2.5% as aformentioned, the default risk premium is calculated as 2.5-2.5=0 percentage point.
+C. An interest rate of 6.5-0=6.5 percentage points represent investment 5 with but with low default risk. Since investment 3 matures earlier than investment 5, r_3 cannot exceed 6.5% assuming that maturity premium is nonnegative. Thus, 6.5% is the upper limit of r_3.

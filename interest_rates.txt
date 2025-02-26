@@ -87,3 +87,59 @@ Flash cards
 
 Nominal risk-free interest rate is the sum of the real risk-free interest rate and the inflation premium.
 But I thought nominal was real plus inflation premium plus liquidity premium plus maturity premium plus deafult premium??
+
+According to the Conceptual Framework for Financial Reporting, which of the following is not an enhancing qualitative characteristic of information in financial statements?
+
+A.Accuracy.
+B.Timeliness.
+C.Comparability.
+
+C is wrong. A is correct. Accuracy is not an enhancing qualitative characteristic. Faithful representation, not accuracy, is a fundamental qualitative characteristic.
+
+Which of the following is not a constraint on the financial statements according to the Conceptual Framework?
+
+A.Understandability.
+B.Benefit versus cost.
+C.Balancing of qualitative characteristics.
+
+C is wrong. A is correct. Understandability is an enhancing qualitative characteristic of financial information—not a constraint.
+
+Conceptual Framework.
+
+Valuing assets at the amount of cash or equivalents paid or the fair value of the consideration given to acquire them at the time of acquisition most closely describes which measurement of financial statement elements?
+
+A.Current cost.
+B.Historical cost.
+C.Realizable value.
+
+A is wrong. B is correct. Historical cost is the consideration paid to acquire an asset.
+
+Which of the following elements of financial statements is most closely related to measurement of performance?
+
+A.Assets.
+B.Expenses.
+C.Liabilities.
+
+A is wrong. B is correct. The elements of financial statements related to the measure of performance are income and expenses.
+
+A company’s profitability for a period would best be evaluated using the:
+
+A.balance sheet.
+B.income statement.
+C.statement of cash flows.
+
+C is wrong. B is correct. Profitability is the performance aspect measured by the income statement. The balance sheet portrays the financial position. The statement of cash flows presents a different aspect of performance.
+
+A company’s profitability over a period of time is best evaluated using the:
+
+A.balance sheet.
+B.income statement.
+C.cash flow statement.
+
+C is wrong. B is correct. A company’s profitability is best evaluated using the income statement. The income statement presents information on the financial results of a company’s business activities over a period of time by communicating how much revenue was generated and the expenses incurred to generate that revenue.
+
+You're absolutely correct that the accrual basis of accounting introduces the risk of recognizing revenue or expenses before cash is actually received or paid, which can lead to issues like unpaid credit or bad debts. However, this risk is managed through specific accounting practices and adjustments. Here's how:
+
+1. Allowance for Doubtful Accounts: 채무불이행자를 기록하기 위한 마통
+2. bad debt expense: 실재한 채무불이행 기록
+
